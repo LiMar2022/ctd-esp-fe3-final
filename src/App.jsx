@@ -1,12 +1,12 @@
-import Footer from "./Components/Footer.jsx";
-import Navbar from "./Components/Navbar.jsx";
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './Components/Home.jsx';
-import Contact from './Components/Contact.jsx';
-import DentistDetail from './Components/DentistDetail.jsx';
-import Favorites from './Components/Favorites.jsx';
 import { routes } from "./Components/utils/routes.js";
+import Footer from "./Components/Footer.jsx";
+import Navbar from "./Components/Navbar.jsx";
+import Detail from './Routes/Detail.jsx';
+import Favs from './Routes/Favs.jsx';
+import Contact from './Routes/Contact.jsx';
+import Home from './Routes/Home.jsx';
 
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
         <Routes>
           <Route path={routes.home} element={<Home />} />
           <Route path={routes.contact} element={<Contact />} />
-          <Route path={routes.dentist} element={<DentistDetail />} />
-          <Route path={routes.favorites} element={<Favorites />} />
+          <Route path={routes.dentist} element={<Detail />} />
+          <Route path={routes.favorites} element={<Favs />} />
           <Route path={routes.notFound} element={<h1>Error 404 - Page not Found</h1>}/>
         </Routes>
         <Footer />
