@@ -13,10 +13,10 @@ const Contact = () => {
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.name) newErrors.name = "Name is required";
-    if (!formData.email) newErrors.email = "Email is required";
+    if (!formData.name) newErrors.name = "Por favor escriba su nombre";
+    if (!formData.email) newErrors.email = "Por favor escriba su email";
     else if (!/\S+@\S+\.\S+/.test(formData.email))
-      newErrors.email = "Email is invalid";
+      newErrors.email = "El correo es inválido, intente nuevamente";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -34,26 +34,14 @@ const Contact = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-          />
+          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
           {errors.name && <span>{errors.name}</span>}
         </div>
 
         <div>
           <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          {errors.email && <span>{errors.email}</span>}
+          <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
+          {errors.email && <span style={{color: "red"}}>{errors.email}</span>}
         </div>
 
         <button type="submit">Send</button>
