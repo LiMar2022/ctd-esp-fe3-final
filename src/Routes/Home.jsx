@@ -1,5 +1,6 @@
-import React from 'react'
-import Card from '../Components/Card'
+import React, { useEffect, useState } from 'react'
+import Card from '../Components/Card';
+import axios from 'axios';
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
@@ -9,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const fetchDentists = async () => {
       try {
-        const response = await axios.get('https://jsonplaceholder.typicode.com/users'); // URL correcta de la API
+        const response = await axios.get('https://jsonplaceholder.typicode.com/users');
         setDentists(response.data);
       } catch (error) {
         console.error('Error fetching dentists:', error);
@@ -23,13 +24,8 @@ const Home = () => {
     <main className="" >
       <h1>Home</h1>
       <div className='card-grid'>
-        {/* Aqui deberias renderizar las cards */}
         {dentists.map(dentist => (
-          <div key={dentist.id} className="card">
-            <h3>{dentist.name}</h3>
-            <p>{dentist.email}</p> {/* Puedes ajustar esto según la información que desees mostrar */}
-            <Link to={`/dentista/${dentist.id}`}>View Details</Link>
-          </div>
+          <Card key={dentist.id} dentist={dentist}/>
         ))}
       </div>
     </main>

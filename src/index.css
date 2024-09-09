@@ -30,6 +30,16 @@ nav{
   padding: 1rem;
 }
 
+.navbar {
+  background-color: rgb(126, 199, 228);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: #fff;
+}
+
+
 a{
   color: #000;
   text-decoration: none;
@@ -95,12 +105,11 @@ form{
 }
 
 table {
- border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    display: table;
-    border: 1px solid #ccc;
-
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  display: table;
+  border: 1px solid #ccc;
 }
 
 td, th {
@@ -119,4 +128,23 @@ tr:nth-child(even) {
 }
 .dark > a {
   color: white;
+}
+
+img {
+  width: 200px;
+  height: 180px;
+  object-fit:contain;
+  border-radius: 10px;
+}
+
+button {
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  min-width: 10px;
+  min-height: 10px;
+  background-color: rgb(255, 255, 255);
+  color: #050505;
+  margin: 5px;
+  cursor: pointer;
 }
