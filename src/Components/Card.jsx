@@ -1,24 +1,17 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import doctor from './utils/doctor.jpg';
+import { useContextGlobal } from "./utils/Context";
 
 const Card = ({ dentist }) => {
-  const [toggle, setToggle] = useState(true);
-  const addFav = ()=>{
-    // Logica para agregar la Card en el localStorage
-    const existingFavs = JSON.parse(localStorage.getItem('favorites')) || [];
-    let isAlreadyFavorite = false;
-    //const isAlreadyFavorite = existingFavs.some(fav => fav.id === dentist.id);
-    for (let i = 0; i < existingFavs.length; i++) {
-      if (existingFavs[i].id === dentist.id) {
-        isAlreadyFavorite = true;
-        break;
-      }
-    }
-
+  //const [toggle, setToggle] = useState(true);
+  const {state, dispatch} = useContextGlobal();
+  
+  const addFav = ()=>{ // Logica para agregar la Card en el localStorage
+    const isAlreadyFavorite = state.favs.some(fav => fav.id === dentist.id);
     if (!isAlreadyFavorite) {
-      existingFavs.push(dentist);
-      localStorage.setItem('favorites', JSON.stringify(existingFavs));
+      const updatedFavs = [...state.favs, dentist];
+      dispatch({type: 'ADD_FAVORITES', payload: updatedFavs})
     }else alert('This dentist is already in your favorites.');
   }
 
@@ -32,9 +25,7 @@ const Card = ({ dentist }) => {
       </Link>
 
       {/* En cada card deberan mostrar en name - username y el id */}
-      {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-      {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-      {toggle}<button onClick={addFav} className="favButton">⭐</button>
+      <button onClick={addFav} className="favButton">⭐</button>
     </div>
   );
 };
