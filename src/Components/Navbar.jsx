@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { routes } from './utils/routes';
+import { routes } from '../utils/routes';
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 

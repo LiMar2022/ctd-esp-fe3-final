@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import doctor from '../Components/utils/doctor.jpg';
+import doctor from '../utils/doctor.jpg';
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
@@ -39,8 +39,6 @@ const Detail = () => {
       ) : (
         <p>Loading...</p>
       )}
-      {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
-      {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
     </>
   )
 }
