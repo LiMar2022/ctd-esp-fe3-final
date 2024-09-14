@@ -3,7 +3,7 @@ export const reducer = (state, action) => {
     case 'GET_DENTISTS':
       return {...state, dentists: action.payload}
     case 'CHANGE_THEME':
-      return {}
+      return {...state, theme: !state.theme }
     case 'ADD_FAVORITES':
       return {...state, favs: [...state.favs, action.payload]}
     case 'REMOVE_FAVORITES':

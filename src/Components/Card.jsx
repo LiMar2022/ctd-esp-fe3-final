@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import doctor from '../utils/doctor.jpg';
 import { useContextGlobal } from "../utils/Context";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
+import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons'; 
+import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 const Card = ({ dentist }) => {
   const {state, dispatch} = useContextGlobal();
   const isAlreadyFavorite = state.favs.some(fav => fav.id === dentist.id);
@@ -21,7 +23,11 @@ const Card = ({ dentist }) => {
       </Link>
 
       <button onClick={addFav} className="favButton">
-        {isAlreadyFavorite ? "Rem 🔴" : "Add ⭕"} {/*Aquí simulo la estrella llena y la vacía*/}
+        {isAlreadyFavorite ? (
+          <FontAwesomeIcon icon={faStarSolid} style={{ color: "#ffc800" }} />
+        ) : (
+          <FontAwesomeIcon icon={faStarRegular} style={{ color: "#FFD43B" }} /> 
+        )} 
       </button>
     </div>
   );

@@ -29,7 +29,7 @@ const Detail = () => {
     <>
       <h1>Detail Dentist {id} </h1>
       {dentist ? (
-        <div>
+        <div className='detail-card'>
           <img src={doctor} alt='doctor-image' />  
           <h3>{dentist.name}</h3>
           <p>Email: {dentist.email}</p>
