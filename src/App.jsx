@@ -9,6 +9,7 @@ import Contact from './Routes/Contact.jsx';
 import Home from './Routes/Home.jsx';
 import { useContextGlobal } from './utils/Context';
 import './index.css';
+import Layout from './Layout/Layout.jsx';
 
 function App() {
   const { state } = useContextGlobal();
@@ -19,15 +20,15 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
-      <Routes>
+    <Routes>
+      <Route path="/" element={<Layout />} >
         <Route path={routes.home} element={<Home />} />
         <Route path={routes.contact} element={<Contact />} />
         <Route path="/dentista/:id" element={<Detail />} />
         <Route path={routes.favorites} element={<Favs />} />
         <Route path={routes.notFound} element={<h1>Error 404 - Page not Found</h1>}/>
-      </Routes>
-      <Footer />
+      </Route>
+    </Routes>
     </div>
     
   );
